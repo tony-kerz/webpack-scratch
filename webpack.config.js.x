@@ -14,5 +14,6 @@ module.exports = {
       { test: /\.coffee$/, loader: 'coffee' }
     ]
   },
+  devtool: 'cheap-module-eval-source-map',
   debug: true
 };
