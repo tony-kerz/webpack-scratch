@@ -1,11 +1,13 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
   entry: './app/app.js',
   output: {
-    path: './build',
-    filename: "bundle.js"
+    path: 'dist',
+    filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js']
   },
   module: {
     loaders: [
@@ -14,5 +16,8 @@ module.exports = {
     ]
   },
   devtool: 'cheap-module-eval-source-map',
-  debug: true
-};
+  debug: true,
+  plugins: [
+    new HtmlWebpackPlugin({template: 'index.html', inject: 'body'})
+  ]
+}
