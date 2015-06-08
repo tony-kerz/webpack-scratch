@@ -1,17 +1,16 @@
 module.exports = {
-  entry: './app/app.coffee',
+  entry: './app/app.js',
   output: {
-    path: __dirname + "/dist",
+    path: './build',
     filename: "bundle.js"
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.coffee'],
-    modulesDirectories: ['node_modules', 'bower_components'],
+    extensions: ['', '.js'],
   },
   module: {
     loaders: [
       { test: /\.scss$/, loader: 'style!css!sass' },
-      { test: /\.coffee$/, loader: 'coffee' }
+      { test: /\.js$/, loader: 'babel', query: {stage: 1} }
     ]
   },
   devtool: 'cheap-module-eval-source-map',
