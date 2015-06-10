@@ -1,9 +1,12 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-
 module.exports = {
-  entry: './app/app.js',
+  entry: {
+    app: [
+      'webpack/hot/dev-server',
+      './app/app.js'
+    ]
+  },
   output: {
-    path: 'build',
+    path: './build',
     filename: 'bundle.js'
   },
   resolve: {
@@ -14,8 +17,5 @@ module.exports = {
       { test: /\.scss$/, loader: 'style!css!sass' },
       { test: /\.js$/, loader: 'babel', query: {stage: 1}}
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({template: 'index.html', inject: 'body'})
-  ]
+  }
 }
